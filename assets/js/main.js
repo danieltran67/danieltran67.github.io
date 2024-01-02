@@ -6,7 +6,7 @@
 
 (function($) {
 
-	var	$window = $(window),
+	const $window = $(window),
 		$body = $('body'),
 		$sidebar = $('#sidebar');
 
@@ -20,7 +20,7 @@
 		});
 
 	// Hack: Enable IE flexbox workarounds.
-		if (browser.name == 'ie')
+		if (browser.name === 'ie')
 			$body.addClass('is-ie');
 
 	// Play initial animations on page load.
@@ -47,7 +47,7 @@
 	// Sidebar.
 		if ($sidebar.length > 0) {
 
-			var $sidebar_a = $sidebar.find('a');
+			const $sidebar_a = $sidebar.find('a');
 
 			$sidebar_a
 				.addClass('scrolly')
@@ -56,7 +56,7 @@
 					var $this = $(this);
 
 					// External link? Bail.
-						if ($this.attr('href').charAt(0) != '#')
+						if ($this.attr('href').charAt(0) !== '#')
 							return;
 
 					// Deactivate all links.
@@ -70,7 +70,7 @@
 				})
 				.each(function() {
 
-					var	$this = $(this),
+					const $this = $(this),
 						id = $this.attr('href'),
 						$section = $(id);
 
@@ -95,7 +95,7 @@
 									$section.removeClass('inactive');
 
 								// No locked links? Deactivate all links and activate this section's one.
-									if ($sidebar_a.filter('.active-locked').length == 0) {
+									if ($sidebar_a.filter('.active-locked').length === 0) {
 
 										$sidebar_a.removeClass('active');
 										$this.addClass('active');
@@ -150,7 +150,7 @@
 			})
 			.each(function() {
 
-				var	$this = $(this),
+				let $this = $(this),
 					$image = $this.find('.image'),
 					$img = $image.find('img'),
 					x;
@@ -159,7 +159,7 @@
 					$image.css('background-image', 'url(' + $img.attr('src') + ')');
 
 				// Set background position.
-					if (x = $img.data('position'))
+					if (x === $img.data('position'))
 						$image.css('background-position', x);
 
 				// Hide <img>.
